@@ -43,7 +43,7 @@ class ArticleView(APIView):
         serializer = ArticleSerializer(instance=saved_article, data=data, partial=True)
         if serializer.is_valid(raise_exception=True):
             article_saved = serializer.save()
-        return Response({"success": "Article '{}' updated successfully".format(article_saved.title)})
+            return Response({"success": "Article '{}' updated successfully".format(article_saved.title)})
 
     def delete(self, request, pk):
         # Get object with this pk
